@@ -1,0 +1,25 @@
+﻿@model AlphaParWebApplication.ServiceReference1.Client
+
+<h3>Add a new client</h3>
+
+@using (Html.BeginForm("InsertClient", "Home", FormMethod.Post))
+{
+    <div class="form-group">
+        <label for="lastname">Lastname: </label>
+        @Html.TextBoxFor(m => m.lastname, new { @class = "form-control", @placeholder = "Lastname", @required = "true" })
+    </div>
+    <div class="form-group">
+        <label for="firstname">Firstname: </label>
+        @Html.TextBoxFor(m => m.firstname, new { @class = "form-control", @placeholder = "Firstname", @required = "true" })
+    </div>
+    <div class="form-group">
+        <label for="address">Address: </label>
+        @Html.TextBoxFor(m => m.address, new { @class = "form-control", @placeholder = "Address", @required = "true" })
+    </div>
+    <div class="form-group">
+        <label for="phone">Phone: </label>
+        @Html.TextBoxFor(m => m.phone, new { @class = "form-control", @placeholder = "Phone", @required = "true" })
+    </div>
+
+    <input type="submit" value="Submit" class="btn btn-primary" />
+}

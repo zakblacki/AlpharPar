@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Welcome to AlphaPar Web Application</h1>
+    <p class="lead">Logged in as: @ViewData["username"]</p>
+</div>
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-danger" role="alert">@ViewBag.ErrorMessage</div>
+}
+
+@{ var grid = new WebGrid(Model, canPage: false);}
+
+@grid.GetHtml(
+    tableStyle: "table table-bordered table-responsive",
+    columns: grid.Columns(
+        grid.Column("lastname", "Last Name"),
+        grid.Column("firstname", "First Name"),
+        grid.Column("address", "Address"),
+        grid.Column("phone", "Phone"),
+        grid.Column("Action", format: (client) => @Html.ActionLink("Delete", "DeleteClient", new { urlEncodedJsonclient = client.urlEncodedJsonClient }), canSort: false)
+    )
+)
+
+@{AlphaParWebApplication.ServiceReference1.Client newClient = new AlphaParWebApplication.ServiceReference1.Client();}
+@Html.Partial("InsertClientForm", newClient)

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpBinding_IService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://alphapar-ws2016.alphapar.ga:8733/AlphaParWcfServiceLibrary.Service.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://alphapar-ws2016.alphapar.ga:8733/AlphaParWcfServiceLibrary.Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/AlphaParWcfServiceLibrary" />
+      <xsd:import schemaLocation="https://alphapar-ws2016.alphapar.ga:8733/AlphaParWcfServiceLibrary.Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://alphapar-ws2016.alphapar.ga:8733/AlphaParWcfServiceLibrary.Service.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/AlphaParWcfServiceLibrary.Models" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService_LoginWithAD_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoginWithAD" />
+  </wsdl:message>
+  <wsdl:message name="IService_LoginWithAD_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginWithADResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_LoginWithAD_ServiceFaultFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/AlphaParWcfServiceLibrary" name="detail" element="q1:ServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetUsernameByToken_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsernameByToken" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetUsernameByToken_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsernameByTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetUsernameByToken_ServiceFaultFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/AlphaParWcfServiceLibrary" name="detail" element="q2:ServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetClients_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClients" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetClients_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetClients_ServiceFaultFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/AlphaParWcfServiceLibrary" name="detail" element="q3:ServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="IService_InsertClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertClient" />
+  </wsdl:message>
+  <wsdl:message name="IService_InsertClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_InsertClient_ServiceFaultFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/AlphaParWcfServiceLibrary" name="detail" element="q4:ServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeleteClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteClient" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeleteClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeleteClient_ServiceFaultFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/AlphaParWcfServiceLibrary" name="detail" element="q5:ServiceFault" />
+  </wsdl:message>
+  <wsdl:portType name="IService">
+    <wsdl:operation name="LoginWithAD">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/LoginWithAD" message="tns:IService_LoginWithAD_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/LoginWithADResponse" message="tns:IService_LoginWithAD_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IService/LoginWithADServiceFaultFault" name="ServiceFaultFault" message="tns:IService_LoginWithAD_ServiceFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsernameByToken">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetUsernameByToken" message="tns:IService_GetUsernameByToken_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetUsernameByTokenResponse" message="tns:IService_GetUsernameByToken_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IService/GetUsernameByTokenServiceFaultFault" name="ServiceFaultFault" message="tns:IService_GetUsernameByToken_ServiceFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClients">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetClients" message="tns:IService_GetClients_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetClientsResponse" message="tns:IService_GetClients_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IService/GetClientsServiceFaultFault" name="ServiceFaultFault" message="tns:IService_GetClients_ServiceFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertClient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/InsertClient" message="tns:IService_InsertClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/InsertClientResponse" message="tns:IService_InsertClient_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IService/InsertClientServiceFaultFault" name="ServiceFaultFault" message="tns:IService_InsertClient_ServiceFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteClient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/DeleteClient" message="tns:IService_DeleteClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/DeleteClientResponse" message="tns:IService_DeleteClient_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IService/DeleteClientServiceFaultFault" name="ServiceFaultFault" message="tns:IService_DeleteClient_ServiceFaultFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IService" type="tns:IService">
+    <wsp:PolicyReference URI="#BasicHttpBinding_IService_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LoginWithAD">
+      <soap:operation soapAction="http://tempuri.org/IService/LoginWithAD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceFaultFault">
+        <soap:fault use="literal" name="ServiceFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsernameByToken">
+      <soap:operation soapAction="http://tempuri.org/IService/GetUsernameByToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceFaultFault">
+        <soap:fault use="literal" name="ServiceFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetClients">
+      <soap:operation soapAction="http://tempuri.org/IService/GetClients" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceFaultFault">
+        <soap:fault use="literal" name="ServiceFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsertClient">
+      <soap:operation soapAction="http://tempuri.org/IService/InsertClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceFaultFault">
+        <soap:fault use="literal" name="ServiceFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteClient">
+      <soap:operation soapAction="http://tempuri.org/IService/DeleteClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceFaultFault">
+        <soap:fault use="literal" name="ServiceFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="BasicHttpBinding_IService" binding="tns:BasicHttpBinding_IService">
+      <soap:address location="https://alphapar-ws2016.alphapar.ga:8733/AlphaParWcfServiceLibrary.Service.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

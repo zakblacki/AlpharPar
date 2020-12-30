@@ -1,0 +1,32 @@
+﻿@model AlphaParWebApplication.Models.LoginInfo
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<div class="jumbotron">
+    <h1>Welcome to AlphaPar Web Application</h1>
+    <p class="lead">Please connect using your AD account in the form below.</p>
+
+    @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+    {
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-6">
+                @Html.TextBoxFor(m => m.username, new { @class = "form-control", @placeholder="Username", @required="true" })
+            </div>
+            <div class="col-md-6">
+                @Html.TextBoxFor(m => m.password, new { @class = "form-control", @placeholder="Password", @type="password", @required = "true" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"><input type="submit" value="Submit" class="btn btn-primary"/></div>
+        </div>
+    </div>
+    }
+
+    @if (ViewBag.ErrorMessage != null)
+    {
+    <div class="alert alert-danger" role="alert">@ViewBag.ErrorMessage</div>
+    }
+</div>
